@@ -9,6 +9,7 @@ export function AuthButtonClient({ session }: { session: Session | null }) {
 
   const supabase = createClientComponentClient();
   const router = useRouter();
+
   const handleSignIn = async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -37,7 +38,7 @@ export function AuthButtonClient({ session }: { session: Session | null }) {
               Iniciar sesion con Github
             </button>
           )
-          : <Button onClick={handleSignOut}>Cerrar Sesion</Button>
+          : <Button onPress={handleSignOut}>Cerrar Sesion</Button>
 
       }
 

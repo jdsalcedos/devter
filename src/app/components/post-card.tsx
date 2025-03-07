@@ -1,13 +1,10 @@
 'use client'
 
-import { Card, CardHeader, CardBody, CardFooter, Avatar } from "@heroui/react";
+import {Avatar, Card, CardBody, CardFooter, CardHeader} from "@heroui/react";
 import Link from "next/link";
-export default function PostCard({
-  userFullName,
-  userName,
-  avatarUrl,
-  content
-}: {
+import {IconHeart, IconMessageCircle, IconRepeat} from "@tabler/icons-react"
+
+export default function PostCard({userFullName, userName, avatarUrl, content}: {
   userFullName: string
   userName: string
   avatarUrl: string
@@ -15,7 +12,8 @@ export default function PostCard({
 }) {
 
   return (
-    <Card className="max-w-[340px]">
+    <Card
+      className="bg-transparent shadow-none hover:bg-slate-800 transition border-b rounded-none cursor-pointer border-white/20">
       <CardHeader className="justify-between">
         <div className="flex gap-x-2">
           <Link href={`/${userName}`}>
@@ -32,14 +30,25 @@ export default function PostCard({
         </div>
 
       </CardHeader>
-      <CardBody className="px-3 py-0 text-small text-white">
+      <CardBody className="px-3 py-0 text-xs text-white">
         <p>
           {content}
         </p>
 
       </CardBody>
       <CardFooter className="gap-3">
+        <button>
+          <IconMessageCircle className="w-4 h-4"/>
+        </button>
 
+        <button>
+          <IconHeart className="w-4 h-4"/>
+        </button>
+
+        <button>
+          <IconRepeat className="w-4 h-4"/>
+
+        </button>
       </CardFooter>
     </Card>
   );
